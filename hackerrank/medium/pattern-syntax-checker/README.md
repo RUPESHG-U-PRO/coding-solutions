@@ -27,7 +27,7 @@ For each test case, print ``Valid`` if the syntax of the given pattern is correc
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-31T17:14:47.527Z  
+**Submitted:** 2026-10-31T17:15:16.428Z  
 
 ```java
 import java.util.Scanner;
