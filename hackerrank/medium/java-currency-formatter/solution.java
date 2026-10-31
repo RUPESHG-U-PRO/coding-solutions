@@ -10,21 +10,27 @@ public class Solution {
         
         // 1. Define the Locales for each required country
         Locale usLocale = Locale.US;
-        Locale indiaLocale = new Locale("en", "IN"); 
-        
         Locale chinaLocale = Locale.CHINA;
         Locale franceLocale = Locale.FRANCE;
         
+        // 2. Initialize NumberFormat objects
         NumberFormat usFormat = NumberFormat.getCurrencyInstance(usLocale);
-        NumberFormat indiaFormat = NumberFormat.getCurrencyInstance(indiaLocale);
         NumberFormat chinaFormat = NumberFormat.getCurrencyInstance(chinaLocale);
         NumberFormat franceFormat = NumberFormat.getCurrencyInstance(franceLocale);
         
+        NumberFormat indiaFormat = NumberFormat.getCurrencyInstance(new Locale("en", "IN"));
+        DecimalFormatSymbols indiaSymbols = new DecimalFormatSymbols();
+        indiaSymbols.setCurrencySymbol("Rs.");
+        indiaSymbols.setMonetaryDecimalSeparator('.');
+        ((DecimalFormat) indiaFormat).setDecimalFormatSymbols(indiaSymbols);
+        
+        // 4. Format the numerical inputs into language strings
         String us = usFormat.format(payment);
         String india = indiaFormat.format(payment);
         String china = chinaFormat.format(payment);
         String france = franceFormat.format(payment);
         
+        // 5. Output values matching requirements exactly
         System.out.println("US: " + us);
         System.out.println("India: " + india);
         System.out.println("China: " + china);
