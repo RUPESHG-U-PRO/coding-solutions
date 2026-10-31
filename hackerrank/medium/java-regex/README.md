@@ -50,7 +50,7 @@ Just write the MyRegex class which contains a String $pattern$. The string shoul
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-31T17:14:52.413Z  
+**Submitted:** 2026-10-31T17:15:23.319Z  
 
 ```java
 import java.util.Scanner;
