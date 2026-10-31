@@ -1,4 +1,4 @@
-# Java Currency Formatter
+# java-string-tokens
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -26,42 +26,42 @@ On the first line, print an integer, $n$, denoting the number of tokens in strin
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-31T16:49:33.847Z  
+**Submitted:** 2026-10-31T16:55:49.320Z  
 
 ```java
+import java.io.*;
 import java.util.*;
-import java.text.*;
 
 public class Solution {
-    
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        double payment = scanner.nextDouble();
-        scanner.close();
+        Scanner scan = new Scanner(System.in);
+        String s = scan.nextLine();
         
-        // 1. Define the Locales for each required country
-        Locale usLocale = Locale.US;
-        Locale indiaLocale = new Locale("en", "IN"); 
+        // Trim leading and trailing spaces
+        s = s.trim();
         
-        Locale chinaLocale = Locale.CHINA;
-        Locale franceLocale = Locale.FRANCE;
+        // If the string is empty after trimming, print 0 and exit
+        if (s.length() == 0) {
+            System.out.println(0);
+        } else {
+            // Split using a regular expression that catches all specified punctuation and spaces
+            String[] tokens = s.split("[!,?._'@\\s]+");
+            
+            // Print the total number of tokens
+            System.out.println(tokens.length);
+            
+            // Print each token on a new line
+            for (String token : tokens) {
+                System.out.println(token);
+            }
+        }
         
-        NumberFormat usFormat = NumberFormat.getCurrencyInstance(usLocale);
-        NumberFormat indiaFormat = NumberFormat.getCurrencyInstance(indiaLocale);
-        NumberFormat chinaFormat = NumberFormat.getCurrencyInstance(chinaLocale);
-        NumberFormat franceFormat = NumberFormat.getCurrencyInstance(franceLocale);
-        
-        String us = usFormat.format(payment);
-        String india = indiaFormat.format(payment);
-        String china = chinaFormat.format(payment);
-        String france = franceFormat.format(payment);
-        
-        System.out.println("US: " + us);
-        System.out.println("India: " + india);
-        System.out.println("China: " + china);
-        System.out.println("France: " + france);
+        scan.close();
     }
 }
+
+
 
 ```
 
